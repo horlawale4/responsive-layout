@@ -1,0 +1,148 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+
+/* Grid Layout */
+body {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+header {
+  grid-area: header;
+  background: #333;
+  color: white;
+  padding: 1rem;
+}
+nav ul {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+article, aside {
+  background: white;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+aside {
+  background: #efefef;
+}
+
+footer {
+  grid-area: footer;
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+input, textarea {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+button {
+  background: #333;
+  color: white;
+  padding: 0.6rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+button:hover {
+  background: #555;
+}
+
+/* Tablet Breakpoint */
+@media (min-width: 600px) {
+  main {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+/* Desktop Breakpoint */
+@media (min-width: 900px) {
+  body {
+    grid-template-areas:
+      "header header"
+      "main main"
+      "footer footer";
+    grid-template-columns: 1fr 1fr;
+  }
+
+  header, footer {
+    grid-column: span 2;
+  }
+
+  nav ul {
+    justify-content: flex-end;
+  }
+
+  main {
+    grid-template-columns: 3fr 1fr;
+  }
+}
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+.image-gallery img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.image-gallery img:hover {
+  transform: scale(1.03);
+}
+blockquote {
+  background: #fff;
+  padding: 1rem;
+  border-left: 5px solid #333;
+  margin-top: 1rem;
+  border-radius: 4px;
+  font-style: italic;
+}
